@@ -14,7 +14,7 @@ export function middleware(request: NextRequest) {
   if (isPublicRoute) {
     return NextResponse.next()
   }
-
+console.log(token)
   // If no token and trying to access protected route, redirect to login
   if (!token) {
     return NextResponse.redirect(new URL("/login", request.url))
@@ -37,6 +37,7 @@ export function middleware(request: NextRequest) {
 
   // Student routes
   if (pathname.startsWith("/student")) {
+    console.log("accessing student")
     return NextResponse.next()
   }
 

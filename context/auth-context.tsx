@@ -66,26 +66,28 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const login = async (email: string, password: string) => {
     try {
       const response = await publicApi.login({ email, password })
-      const { token, user: userData } = response.data
+      // const { token, user: userData } = response.data
 
-      localStorage.setItem("jwtToken", token)
-      setUser(userData)
+      // localStorage.setItem("jwt", token)
+      // setUser(userData)
 
       toast.success("Login successful!")
+      console.log("Login response:", response)
 
       // Redirect based on role
-      switch (userData.role) {
-        case "ADMIN":
-          router.push("/admin/dashboard")
-          break
-        case "INSTRUCTOR":
-          router.push("/instructor/dashboard")
-          break
-        default:
-          router.push("/student/dashboard")
-      }
-    } catch (error: any) {
-      toast.error(error.response?.data?.message || "Login failed")
+      // switch (userData.role) {
+      //   case "ADMIN":
+      //     router.push("/admin/dashboard")
+      //     break
+      //   case "INSTRUCTOR":
+      //     router.push("/instructor/dashboard")
+      //     break
+      //   default:
+      //     router.push("/student/dashboard")
+      // }
+    } catch (error) {
+      // toast.error(error.response?.data?.message || "Login failed")
+      console.error("Login error:", error)
       throw error
     }
   }

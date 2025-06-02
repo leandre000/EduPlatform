@@ -11,8 +11,8 @@ import Link from "next/link"
 import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
 
-export default function StudentDashboard() {
-  const { user } = useAuth()
+export default function StudentDashboardPage() {
+ 
   const [enrollments, setEnrollments] = useState([])
   const [complaints, setComplaints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -20,7 +20,7 @@ export default function StudentDashboard() {
   useEffect(() => {
     fetchDashboardData()
   }, [])
-
+console.log("StudentDashboard rendered");
   const fetchDashboardData = async () => {
     try {
       const [enrollmentsRes, complaintsRes] = await Promise.all([
