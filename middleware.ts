@@ -10,7 +10,7 @@ export function middleware(request: NextRequest) {
     (route) => request.nextUrl.pathname === route || request.nextUrl.pathname.startsWith("/courses/"),
   )
 
-  // If accessing a public route, allow access
+  //Accessing a public route, allow access
   if (isPublicRoute) {
     return NextResponse.next()
   }
