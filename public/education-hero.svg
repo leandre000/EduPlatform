@@ -1,0 +1,76 @@
+<svg width="500" height="400" viewBox="0 0 500 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0fdfa;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#eff6ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#faf5ff;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="circleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="tealGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#14b8a6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="500" height="400" fill="url(#bgGradient)" rx="20"/>
+  
+  <!-- Decorative circles -->
+  <circle cx="80" cy="80" r="60" fill="none" stroke="#14b8a6" stroke-width="2" opacity="0.1"/>
+  <circle cx="420" cy="120" r="40" fill="none" stroke="#3b82f6" stroke-width="2" opacity="0.1"/>
+  <circle cx="120" cy="320" r="50" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.1"/>
+  
+  <!-- Central Learning Icon -->
+  <circle cx="250" cy="200" r="80" fill="url(#circleGradient)" opacity="0.9"/>
+  <path d="M220 180 L250 160 L280 180 L280 220 L250 240 L220 220 Z" fill="white" opacity="0.9"/>
+  <rect x="235" y="185" width="30" height="25" fill="none" stroke="white" stroke-width="2" opacity="0.8"/>
+  <line x1="235" y1="195" x2="265" y2="195" stroke="white" stroke-width="1" opacity="0.8"/>
+  <line x1="235" y1="205" x2="265" y2="205" stroke="white" stroke-width="1" opacity="0.8"/>
+  
+  <!-- Certificate Badge -->
+  <rect x="50" y="50" width="120" height="80" rx="15" fill="white" opacity="0.95" stroke="#14b8a6" stroke-width="2"/>
+  <circle cx="80" cy="80" r="15" fill="url(#tealGradient)"/>
+  <path d="M75 80 L78 83 L85 76" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="110" y="75" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Certificate</text>
+  <text x="110" y="90" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Earned!</text>
+  
+  <!-- Progress Badge -->
+  <rect x="330" y="120" width="120" height="80" rx="15" fill="white" opacity="0.95" stroke="#3b82f6" stroke-width="2"/>
+  <circle cx="360" cy="150" r="15" fill="url(#blueGradient)"/>
+  <path d="M355 150 L358 153 L365 146" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="390" y="145" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">Progress: 85%</text>
+  <text x="390" y="160" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Course Complete</text>
+  
+  <!-- Students Badge -->
+  <rect x="50" y="270" width="120" height="80" rx="15" fill="white" opacity="0.95" stroke="#f59e0b" stroke-width="2"/>
+  <circle cx="80" cy="300" r="15" fill="url(#orangeGradient)"/>
+  <circle cx="75" cy="295" r="3" fill="white"/>
+  <circle cx="85" cy="295" r="3" fill="white"/>
+  <path d="M75 305 Q80 310 85 305" stroke="white" stroke-width="1.5" fill="none"/>
+  <text x="110" y="295" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#1f2937">50K+ Students</text>
+  <text x="110" y="310" font-family="Arial, sans-serif" font-size="10" fill="#6b7280">Learning Together</text>
+  
+  <!-- Interactive Learning Text -->
+  <rect x="180" y="280" width="140" height="60" rx="15" fill="white" opacity="0.9" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="250" y="305" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1f2937" text-anchor="middle">Interactive Learning</text>
+  <text x="250" y="320" font-family="Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Real-world projects</text>
+  
+  <!-- Floating elements -->
+  <circle cx="400" cy="60" r="8" fill="#14b8a6" opacity="0.6"/>
+  <circle cx="450" cy="100" r="6" fill="#3b82f6" opacity="0.6"/>
+  <circle cx="380" cy="350" r="10" fill="#8b5cf6" opacity="0.6"/>
+  <circle cx="60" cy="200" r="5" fill="#f59e0b" opacity="0.6"/>
+</svg>

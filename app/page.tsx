@@ -304,11 +304,11 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                   <Image
-                    src="/placeholder.svg?height=400&width=500"
-                    alt="Learning Dashboard"
+                    src="/education-hero.svg"
+                    alt="Interactive Learning Dashboard"
                     width={500}
                     height={400}
-                    className="rounded-2xl"
+                    className="rounded-2xl w-full h-auto"
                   />
                 </div>
 
