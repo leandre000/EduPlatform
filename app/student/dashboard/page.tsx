@@ -12,9 +12,8 @@ import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
 
 export default function StudentDashboardPage() {
- 
+  const { user } = useAuth()
   const [enrollments, setEnrollments] = useState([])
-  const [complaints, setComplaints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -23,12 +22,8 @@ export default function StudentDashboardPage() {
 console.log("StudentDashboard rendered");
   const fetchDashboardData = async () => {
     try {
-      const [enrollmentsRes, complaintsRes] = await Promise.all([
-        studentApi.getMyEnrollments(),
-        studentApi.getMyComplaints(),
-      ])
-      setEnrollments(enrollmentsRes.data)
-      setComplaints(complaintsRes.data)
+      const enrollmentsRes = await studentApi.getMyEnrollments()
+      setEnrollments(enrollmentsRes.data || [])
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error)
     } finally {

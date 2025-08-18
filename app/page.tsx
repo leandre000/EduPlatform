@@ -81,7 +81,7 @@ export default function HomePage() {
       await publicApi.submitContact(contactForm)
       toast.success("Message sent successfully! We'll get back to you soon.")
       setContactForm({ name: "", email: "", subject: "", message: "" })
-    } catch (error) {
+    } catch {
       toast.error("Failed to send message. Please try again.")
     } finally {
       setIsSubmitting(false)

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -21,36 +21,13 @@ import {
   Area,
 } from "recharts"
 import Link from "next/link"
-import { useAuth } from "@/context/auth-context"
-import { adminApi } from "@/utils/api"
+
 
 export default function AdminDashboard() {
-  const { user } = useAuth()
-  const [stats, setStats] = useState(null)
-  const [users, setUsers] = useState([])
-  const [complaints, setComplaints] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    fetchDashboardData()
-  }, [])
 
-  const fetchDashboardData = async () => {
-    try {
-      const [statsRes, usersRes, complaintsRes] = await Promise.all([
-        adminApi.getPlatformStats(),
-        adminApi.getAllUsers({ limit: 10 }),
-        adminApi.viewAllComplaints(),
-      ])
-      setStats(statsRes.data)
-      setUsers(usersRes.data.users)
-      setComplaints(complaintsRes.data)
-    } catch (error) {
-      console.error("Failed to fetch dashboard data:", error)
-    } finally {
-      setIsLoading(false)
-    }
-  }
+
+
 
   // Mock data for charts
   const userGrowthData = [
@@ -86,7 +63,7 @@ export default function AdminDashboard() {
     { category: "Business", courses: 15, students: 380 },
   ]
 
-  const platformStats = [
+  const defaultPlatformStats = [
     {
       title: "Total Users",
       value: "2,458",
@@ -172,13 +149,7 @@ export default function AdminDashboard() {
     },
   ]
 
-  if (isLoading) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-teal-600"></div>
-      </div>
-    )
-  }
+
 
   return (
     <div className="p-6 space-y-6">
@@ -206,7 +177,7 @@ export default function AdminDashboard() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {platformStats.map((stat, index) => (
+        {defaultPlatformStats.map((stat, index) => (
           <Card key={index}>
             <CardContent className="p-6">
               <div className="flex items-center justify-between">

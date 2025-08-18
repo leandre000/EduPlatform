@@ -19,13 +19,10 @@ import {
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts"
 import Link from "next/link"
-import { useAuth } from "@/context/auth-context"
 import { instructorApi } from "@/utils/api"
 
 export default function InstructorDashboard() {
-  const { user } = useAuth()
   const [courses, setCourses] = useState([])
-  const [complaints, setComplaints] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -34,12 +31,8 @@ export default function InstructorDashboard() {
 
   const fetchDashboardData = async () => {
     try {
-      const [coursesRes, complaintsRes] = await Promise.all([
-        instructorApi.getMyCourses(),
-        instructorApi.viewInstructorComplaints(),
-      ])
-      setCourses(coursesRes.data)
-      setComplaints(complaintsRes.data)
+      const coursesRes = await instructorApi.getMyCourses()
+      setCourses(coursesRes.data || [])
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error)
     } finally {

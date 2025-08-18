@@ -4,9 +4,6 @@ import type React from "react"
 
 import { SidebarProvider, SidebarInset } from "@/components/ui/sidebar"
 import { AdminSidebar } from "@/components/admin/admin-sidebar"
-import { useAuth } from "@/context/auth-context"
-import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 
 export default function AdminLayout({
   children,

@@ -49,7 +49,7 @@ export default function RegisterPage() {
         role: formData.role,
         bio: formData.bio || undefined,
       })
-    } catch (error) {
+    } catch {
       // Error is handled in the auth context
     } finally {
       setIsLoading(false)
