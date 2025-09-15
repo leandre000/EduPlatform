@@ -68,6 +68,10 @@ const ChartContainer = React.forwardRef<
 ChartContainer.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
+  if (!config || typeof config !== "object") {
+    return null
+  }
+
   const colorConfig = Object.entries(config).filter(
     ([, config]) => config.theme || config.color
   )
@@ -180,7 +184,7 @@ const ChartTooltipContent = React.forwardRef<
       return null
     }
 
-    const nestLabel = payload.length === 1 && indicator !== "dot"
+    const nestLabel = (Array.isArray(payload) ? payload.length === 1 : false) && indicator !== "dot"
 
     return (
       <div

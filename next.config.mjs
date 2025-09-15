@@ -9,6 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  experimental: {
+    optimizePackageImports: [],
+  },
   // Fix webpack hashing on Node 20+ / 22 (WasmHash error)
   webpack: (config) => {
     if (!config.output) config.output = {}

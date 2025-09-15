@@ -13,6 +13,13 @@ const api = axios.create({
 api.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("jwtToken")
+    const expiresAt = localStorage.getItem("jwtExpiresAt")
+    if (expiresAt && Date.now() > Number(expiresAt)) {
+      localStorage.removeItem("jwtToken")
+      localStorage.removeItem("jwtExpiresAt")
+      // avoid sending stale token
+      return config
+    }
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -29,6 +36,7 @@ api.interceptors.response.use(
   (error) => {
     if (error.response?.status === 401) {
       localStorage.removeItem("jwtToken")
+      localStorage.removeItem("jwtExpiresAt")
       window.location.href = "/login"
     }
     return Promise.reject(error)

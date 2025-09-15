@@ -49,6 +49,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const checkAuth = async () => {
     try {
       const token = localStorage.getItem("jwtToken")
+      const expiresAtStr = localStorage.getItem("jwtExpiresAt")
+      const now = Date.now()
       if (!token) {
         // Check for demo session
         const demoRole = localStorage.getItem("demoRole") as User["role"] | null
@@ -63,6 +65,15 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           setIsLoading(false)
           return
         }
+        setIsLoading(false)
+        return
+      }
+
+      // If token exists but expired, clear and exit
+      if (expiresAtStr && now > Number(expiresAtStr)) {
+        localStorage.removeItem("jwtToken")
+        localStorage.removeItem("jwtExpiresAt")
+        localStorage.removeItem("demoRole")
         setIsLoading(false)
         return
       }
@@ -101,6 +112,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       toast.success("Login successful!")
       console.log("Login response:", response)
 
+      // If backend returns a token, set 1-hour expiry fallback
+      // const expiresAt = Date.now() + 60 * 60 * 1000
+      // localStorage.setItem("jwtToken", token)
+      // localStorage.setItem("jwtExpiresAt", String(expiresAt))
+
       // Redirect based on role
       // switch (userData.role) {
       //   case "ADMIN":
@@ -121,6 +137,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     localStorage.removeItem("jwtToken")
+    localStorage.removeItem("jwtExpiresAt")
     localStorage.removeItem("demoRole")
     // clear cookie
     if (typeof document !== "undefined") {
@@ -158,9 +175,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const demoLogin = (role: "STUDENT" | "INSTRUCTOR" | "ADMIN") => {
     const demoToken = `demo-${role}-${Date.now()}`
     localStorage.setItem("jwtToken", demoToken)
+    const expiresAt = Date.now() + 60 * 60 * 1000
+    localStorage.setItem("jwtExpiresAt", String(expiresAt))
     localStorage.setItem("demoRole", role)
     if (typeof document !== "undefined") {
-      document.cookie = `jwtToken=${demoToken}; path=/` 
+      // cookie with 1-hour expiry
+      const expiresDate = new Date(expiresAt).toUTCString()
+      document.cookie = `jwtToken=${demoToken}; expires=${expiresDate}; path=/`
     }
     const demoUser: User = {
       id: "demo-user-id",

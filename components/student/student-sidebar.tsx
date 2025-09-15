@@ -161,9 +161,9 @@ export function StudentSidebar() {
                 sideOffset={4}
               >
                 <DropdownMenuItem asChild>
-                  <Link href="/student/profile">
+                  <Link href="/student/settings">
                     <IconSettings className="mr-2 h-4 w-4" />
-                    Profile Settings
+                    Settings
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />

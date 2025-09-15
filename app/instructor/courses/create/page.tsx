@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { IconBook, IconUpload, IconDeviceFloppy, IconArrowLeft } from "@tabler/icons-react"
 import Link from "next/link"
-import { useState } from "react"
+import React, { useState } from "react"
 
 export default function CreateCoursePage() {
   const [formData, setFormData] = useState({

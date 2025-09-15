@@ -6,10 +6,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { IconBook, IconClock, IconAward, IconUsers, IconTrendingUp, IconPlayerPlay, IconCheck, IconStar, IconCalendar, IconTarget } from "@tabler/icons-react"
+import { IconBook, IconClock, IconAward, IconTrendingUp, IconPlayerPlay, IconCheck, IconStar } from "@tabler/icons-react"
 import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
-import Image from "next/image"
 
 export default function StudentDashboardPage() {
   const { user } = useAuth()

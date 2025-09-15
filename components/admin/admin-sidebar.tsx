@@ -167,9 +167,9 @@ export function AdminSidebar() {
                 sideOffset={4}
               >
                 <DropdownMenuItem asChild>
-                  <Link href="/admin/profile">
+                  <Link href="/admin/settings">
                     <IconSettings className="mr-2 h-4 w-4" />
-                    Profile Settings
+                    Settings
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />

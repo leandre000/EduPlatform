@@ -1,16 +1,36 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { IconBook, IconPlayerPlay, IconClock, IconStar, IconUsers, IconAward } from "@tabler/icons-react"
-import { useAuth } from "@/context/auth-context"
 import { useState, useEffect } from "react"
 
+type CourseSummary = {
+  id: number
+  title: string
+  instructor: string
+  thumbnail: string
+  duration: string
+  level: "Beginner" | "Intermediate" | "Advanced"
+  rating: number
+  students: number
+  price: string
+}
+
+type Enrollment = {
+  id: number
+  course: CourseSummary
+  progress: number
+  completedLessons: number
+  totalLessons: number
+  enrolledAt: string
+  lastAccessed: string
+}
+
 export default function StudentCoursesPage() {
-  const { user } = useAuth()
-  const [enrollments, setEnrollments] = useState([])
+  const [enrollments, setEnrollments] = useState<Enrollment[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
@@ -20,7 +40,7 @@ export default function StudentCoursesPage() {
   const fetchEnrollments = async () => {
     try {
       // Mock data for now
-      const mockEnrollments = [
+      const mockEnrollments: Enrollment[] = [
         {
           id: 1,
           course: {
