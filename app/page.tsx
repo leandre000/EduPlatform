@@ -254,7 +254,7 @@ export default function HomePage() {
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-50 via-blue-50 to-purple-50 dark:from-teal-950 dark:via-blue-950 dark:to-purple-950" />
         <div className="absolute inset-0 bg-grid-pattern opacity-5" />
-        <div className="relative container mx-auto px-4 py-20 lg:py-32">
+        <div className="relative container mx-auto px-6 md:px-8 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="space-y-6">
@@ -287,7 +287,7 @@ export default function HomePage() {
                   <IconPlayerPlay className="w-5 h-5 mr-2" />
                   Start Learning Free
                 </Button>
-                <Button size="lg" variant="outline" className="border-2" onClick={handleBrowseCourses}>
+                <Button size="lg" variant="outline" className="border-2 hover:bg-teal-50 dark:hover:bg-teal-950" onClick={handleBrowseCourses}>
                   <IconBook className="w-5 h-5 mr-2" />
                   Browse Courses
                 </Button>
@@ -360,7 +360,7 @@ export default function HomePage() {
         id="about"
         className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               About EduPlatform
@@ -397,7 +397,7 @@ export default function HomePage() {
 
       {/* Platform Features */}
       <section id="features" className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Platform Features
@@ -467,7 +467,7 @@ export default function HomePage() {
         id="courses"
         className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Course Categories
@@ -516,7 +516,7 @@ export default function HomePage() {
 
       {/* Testimonials */}
       <section className="py-20 lg:py-32">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Student Success
@@ -566,7 +566,7 @@ export default function HomePage() {
         id="contact"
         className="py-20 lg:py-32 bg-gradient-to-br from-gray-50 to-blue-50 dark:from-gray-900 dark:to-blue-950"
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-6 md:px-8">
           <div className="text-center mb-16">
             <Badge variant="outline" className="mb-4">
               Get In Touch
@@ -710,7 +710,7 @@ export default function HomePage() {
       <section className="py-20 lg:py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-teal-600 via-blue-600 to-purple-600" />
         <div className="absolute inset-0 bg-grid-pattern opacity-10" />
-        <div className="relative container mx-auto px-4 text-center">
+        <div className="relative container mx-auto px-6 md:px-8 text-center">
           <div className="max-w-4xl mx-auto space-y-8">
             <Badge variant="secondary" className="bg-white/20 text-white border-0">
               🎯 Ready to Start?

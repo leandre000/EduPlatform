@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { BookOpen, Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
+import { IconBook, IconBrandFacebook, IconBrandTwitter, IconBrandInstagram, IconBrandLinkedin } from "@tabler/icons-react"
 
 export function Footer() {
   const footerLinks = {
@@ -25,13 +25,13 @@ export function Footer() {
 
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
+      <div className="container mx-auto px-6 md:px-8 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-teal-600 rounded-full flex items-center justify-center">
-                <BookOpen className="w-5 h-5 text-white" />
+              <div className="w-8 h-8 bg-teal-600 rounded-lg flex items-center justify-center">
+                <IconBook className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-teal-400">Learn</span>
             </Link>
@@ -40,16 +40,16 @@ export function Footer() {
             </p>
             <div className="flex space-x-4">
               <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                <Facebook className="w-5 h-5" />
+                <IconBrandFacebook className="w-5 h-5" />
               </Link>
               <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                <Twitter className="w-5 h-5" />
+                <IconBrandTwitter className="w-5 h-5" />
               </Link>
               <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                <Instagram className="w-5 h-5" />
+                <IconBrandInstagram className="w-5 h-5" />
               </Link>
               <Link href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                <Linkedin className="w-5 h-5" />
+                <IconBrandLinkedin className="w-5 h-5" />
               </Link>
             </div>
           </div>
