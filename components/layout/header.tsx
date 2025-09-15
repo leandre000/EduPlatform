@@ -122,12 +122,16 @@ export function Header() {
               </DropdownMenu>
             ) : (
               <div className="hidden md:flex items-center space-x-2">
-                <Button variant="ghost" asChild>
+                <Button 
+                  variant="ghost" 
+                  asChild
+                  className="text-foreground hover:text-teal-600 dark:text-foreground dark:hover:text-teal-400 border border-transparent hover:border-teal-200 dark:hover:border-teal-800"
+                >
                   <Link href="/login">Login</Link>
                 </Button>
                 <Button
                   asChild
-                  className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700"
+                  className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
                 >
                   <Link href="/register">Get Started</Link>
                 </Button>
@@ -154,12 +158,19 @@ export function Header() {
                   ))}
                   {!isAuthenticated && (
                     <div className="flex flex-col space-y-2 pt-4">
-                      <Button variant="ghost" asChild>
+                      <Button 
+                        variant="ghost" 
+                        asChild
+                        className="text-foreground hover:text-teal-600 dark:text-foreground dark:hover:text-teal-400 border border-transparent hover:border-teal-200 dark:hover:border-teal-800"
+                      >
                         <Link href="/login" onClick={() => setIsOpen(false)}>
                           Login
                         </Link>
                       </Button>
-                      <Button asChild>
+                      <Button 
+                        asChild
+                        className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white shadow-lg hover:shadow-xl transition-all duration-200"
+                      >
                         <Link href="/register" onClick={() => setIsOpen(false)}>
                           Get Started
                         </Link>

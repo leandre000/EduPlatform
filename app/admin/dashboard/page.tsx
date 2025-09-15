@@ -1,6 +1,5 @@
 "use client"
 
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -21,9 +20,9 @@ import {
   Area,
 } from "recharts"
 import Link from "next/link"
+import { ProtectedRoute } from "@/components/protected-route"
 
-
-export default function AdminDashboard() {
+function AdminDashboardContent() {
 
 
 
@@ -481,5 +480,13 @@ export default function AdminDashboard() {
         </Card>
       </div>
     </div>
+  )
+}
+
+export default function AdminDashboard() {
+  return (
+    <ProtectedRoute allowedRoles={["ADMIN"]}>
+      <AdminDashboardContent />
+    </ProtectedRoute>
   )
 }

@@ -309,7 +309,7 @@ export default function HomePage() {
               <div className="relative z-10">
                 <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 transform rotate-3 hover:rotate-0 transition-transform duration-500">
                   <Image
-                    src="/dashboard-learning.jpg"
+                    src="/learning-hero.svg"
                     alt="Interactive Learning Dashboard"
                     width={640}
                     height={420}

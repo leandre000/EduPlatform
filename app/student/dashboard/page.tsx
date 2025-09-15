@@ -9,8 +9,9 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { IconBook, IconClock, IconAward, IconTrendingUp, IconPlayerPlay, IconCheck, IconStar } from "@tabler/icons-react"
 import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
+import { ProtectedRoute } from "@/components/protected-route"
 
-export default function StudentDashboardPage() {
+function StudentDashboardContent() {
   const { user } = useAuth()
   const [enrollments, setEnrollments] = useState([])
   const [isLoading, setIsLoading] = useState(true)
@@ -230,5 +231,13 @@ export default function StudentDashboardPage() {
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+export default function StudentDashboardPage() {
+  return (
+    <ProtectedRoute allowedRoles={["STUDENT", "INSTRUCTOR", "ADMIN"]}>
+      <StudentDashboardContent />
+    </ProtectedRoute>
   )
 }

@@ -20,8 +20,9 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts"
 import Link from "next/link"
 import { instructorApi } from "@/utils/api"
+import { ProtectedRoute } from "@/components/protected-route"
 
-export default function InstructorDashboard() {
+function InstructorDashboardContent() {
   const [courses, setCourses] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -421,5 +422,13 @@ export default function InstructorDashboard() {
         </CardContent>
       </Card>
     </div>
+  )
+}
+
+export default function InstructorDashboard() {
+  return (
+    <ProtectedRoute allowedRoles={["INSTRUCTOR", "ADMIN"]}>
+      <InstructorDashboardContent />
+    </ProtectedRoute>
   )
 }
