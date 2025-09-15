@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { BookOpen, Eye, EyeOff, Loader2 } from "lucide-react"
+import { IconBook, IconEye, IconEyeOff, IconLoader2 } from "@tabler/icons-react"
 import Cookies from 'js-cookie';
 
 export default function LoginPage() {
@@ -71,7 +71,7 @@ console.log("Login successful:", data)
             await router.replace("/instructor/dashboard")
             break
           case "ADMIN":
-            await router.replace("/admin/home")
+            await router.replace("/admin/dashboard")
             break
           default:
             await router.replace("/dashboard/home")
@@ -94,7 +94,7 @@ console.log("Login successful:", data)
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
+              <IconBook className="w-6 h-6 text-white" />
             </div>
           </div>
           <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
@@ -135,7 +135,7 @@ console.log("Login successful:", data)
                   onClick={() => setShowPassword(!showPassword)}
                   disabled={isLoading}
                 >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPassword ? <IconEyeOff className="h-4 w-4" /> : <IconEye className="h-4 w-4" />}
                 </Button>
               </div>
             </div>
@@ -148,7 +148,7 @@ console.log("Login successful:", data)
               </Link>
             </div>
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isLoading && <IconLoader2 className="mr-2 h-4 w-4 animate-spin" />}
               Sign In
             </Button>
           </form>

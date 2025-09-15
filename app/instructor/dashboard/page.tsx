@@ -5,17 +5,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import {
-  BookOpen,
-  Users,
-  DollarSign,
-  TrendingUp,
-  Plus,
-  Eye,
-  Edit,
-  MessageSquare,
-  FileText,
-  BarChart3,
-} from "lucide-react"
+  IconBook,
+  IconUsers,
+  IconCurrencyDollar,
+  IconTrendingUp,
+  IconPlus,
+  IconEye,
+  IconEdit,
+  IconMessageCircle,
+  IconFileText,
+  IconChartBar,
+} from "@tabler/icons-react"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell } from "recharts"
 import Link from "next/link"
@@ -68,7 +68,7 @@ export default function InstructorDashboard() {
     {
       title: "Total Courses",
       value: courses.length,
-      icon: <BookOpen className="w-6 h-6" />,
+      icon: <IconBook className="w-6 h-6" />,
       color: "text-blue-600",
       bgColor: "bg-blue-100 dark:bg-blue-900",
       change: "+12%",
@@ -76,7 +76,7 @@ export default function InstructorDashboard() {
     {
       title: "Total Students",
       value: "1,234",
-      icon: <Users className="w-6 h-6" />,
+      icon: <IconUsers className="w-6 h-6" />,
       color: "text-green-600",
       bgColor: "bg-green-100 dark:bg-green-900",
       change: "+23%",
@@ -84,7 +84,7 @@ export default function InstructorDashboard() {
     {
       title: "Monthly Revenue",
       value: "$3,000",
-      icon: <DollarSign className="w-6 h-6" />,
+      icon: <IconCurrencyDollar className="w-6 h-6" />,
       color: "text-purple-600",
       bgColor: "bg-purple-100 dark:bg-purple-900",
       change: "+18%",
@@ -92,7 +92,7 @@ export default function InstructorDashboard() {
     {
       title: "Avg. Rating",
       value: "4.8",
-      icon: <TrendingUp className="w-6 h-6" />,
+      icon: <IconTrendingUp className="w-6 h-6" />,
       color: "text-orange-600",
       bgColor: "bg-orange-100 dark:bg-orange-900",
       change: "+0.2",
@@ -169,13 +169,13 @@ export default function InstructorDashboard() {
         <div className="flex gap-2 mt-4 md:mt-0">
           <Button asChild>
             <Link href="/instructor/courses/create">
-              <Plus className="w-4 h-4 mr-2" />
+              <IconPlus className="w-4 h-4 mr-2" />
               Create Course
             </Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="/instructor/analytics">
-              <BarChart3 className="w-4 h-4 mr-2" />
+              <IconChartBar className="w-4 h-4 mr-2" />
               Analytics
             </Link>
           </Button>
@@ -293,10 +293,10 @@ export default function InstructorDashboard() {
                   </div>
                   <div className="flex gap-2">
                     <Button size="sm" variant="outline">
-                      <Eye className="w-4 h-4" />
+                      <IconEye className="w-4 h-4" />
                     </Button>
                     <Button size="sm" variant="outline">
-                      <Edit className="w-4 h-4" />
+                      <IconEdit className="w-4 h-4" />
                     </Button>
                   </div>
                 </div>
@@ -326,11 +326,11 @@ export default function InstructorDashboard() {
                       }`}
                     >
                       {task.type === "assignment" ? (
-                        <FileText className="w-4 h-4" />
+                        <IconFileText className="w-4 h-4" />
                       ) : task.type === "complaint" ? (
-                        <MessageSquare className="w-4 h-4" />
+                        <IconMessageCircle className="w-4 h-4" />
                       ) : (
-                        <Eye className="w-4 h-4" />
+                        <IconEye className="w-4 h-4" />
                       )}
                     </div>
                     <div>
@@ -395,25 +395,25 @@ export default function InstructorDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Button className="h-20 flex-col gap-2" variant="outline" asChild>
               <Link href="/instructor/courses/create">
-                <Plus className="w-6 h-6" />
+                <IconPlus className="w-6 h-6" />
                 Create New Course
               </Link>
             </Button>
             <Button className="h-20 flex-col gap-2" variant="outline" asChild>
               <Link href="/instructor/assignments">
-                <FileText className="w-6 h-6" />
+                <IconFileText className="w-6 h-6" />
                 Grade Assignments
               </Link>
             </Button>
             <Button className="h-20 flex-col gap-2" variant="outline" asChild>
               <Link href="/instructor/complaints">
-                <MessageSquare className="w-6 h-6" />
+                <IconMessageCircle className="w-6 h-6" />
                 Handle Complaints
               </Link>
             </Button>
             <Button className="h-20 flex-col gap-2" variant="outline" asChild>
               <Link href="/instructor/analytics">
-                <BarChart3 className="w-6 h-6" />
+                <IconChartBar className="w-6 h-6" />
                 View Analytics
               </Link>
             </Button>

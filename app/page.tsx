@@ -11,30 +11,34 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
 import {
-  BookOpen,
-  Users,
-  Clock,
-  Award,
-  Star,
-  Play,
-  BarChart3,
-  Shield,
-  TrendingUp,
-  CheckCircle,
-  GraduationCap,
-  Rocket,
-  Heart,
-  ArrowRight,
-  Mail,
-  Phone,
-  MapPin,
-  Send,
-  MessageSquare,
-  Globe,
-  Zap,
-  Target,
-  Lightbulb,
-} from "lucide-react"
+  IconBook,
+  IconUsers,
+  IconClock,
+  IconAward,
+  IconStar,
+  IconPlayerPlay,
+  IconChartBar,
+  IconShield,
+  IconTrendingUp,
+  IconCheck,
+  IconSchool,
+  IconRocket,
+  IconHeart,
+  IconArrowRight,
+  IconMail,
+  IconPhone,
+  IconMapPin,
+  IconSend,
+  IconMessageCircle,
+  IconWorld,
+  IconBolt,
+  IconTarget,
+  IconBulb,
+  IconCode,
+  IconDeviceMobile,
+  IconPalette,
+  IconBriefcase,
+} from "@tabler/icons-react"
 import Image from "next/image"
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
@@ -90,25 +94,25 @@ export default function HomePage() {
 
   const features = [
     {
-      icon: <Users className="w-8 h-8" />,
+      icon: <IconUsers className="w-8 h-8" />,
       title: "Learn From Experts",
       description: "World-class instructors with industry experience",
       color: "from-blue-500 to-cyan-500",
     },
     {
-      icon: <Clock className="w-8 h-8" />,
+      icon: <IconClock className="w-8 h-8" />,
       title: "Learn At Your Pace",
       description: "Flexible scheduling with lifetime access",
       color: "from-purple-500 to-pink-500",
     },
     {
-      icon: <Award className="w-8 h-8" />,
+      icon: <IconAward className="w-8 h-8" />,
       title: "Earn Certificates",
       description: "Industry-recognized certificates upon completion",
       color: "from-orange-500 to-red-500",
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
+      icon: <IconChartBar className="w-8 h-8" />,
       title: "Track Progress",
       description: "Advanced analytics and progress tracking",
       color: "from-green-500 to-teal-500",
@@ -117,21 +121,21 @@ export default function HomePage() {
 
   const platformFeatures = [
     {
-      icon: <GraduationCap className="w-12 h-12" />,
+      icon: <IconSchool className="w-12 h-12" />,
       title: "Student Dashboard",
       description: "Comprehensive learning hub with progress tracking, course management, and interactive assignments.",
       features: ["Course Progress Tracking", "Assignment Submissions", "Certificate Management", "Learning Analytics"],
       color: "from-blue-500 to-cyan-500",
     },
     {
-      icon: <BookOpen className="w-12 h-12" />,
+      icon: <IconBook className="w-12 h-12" />,
       title: "Instructor Portal",
       description: "Complete course creation and management tools with revenue tracking and student analytics.",
       features: ["Course Creation Tools", "Student Management", "Revenue Analytics", "Assignment Grading"],
       color: "from-purple-500 to-pink-500",
     },
     {
-      icon: <Shield className="w-12 h-12" />,
+      icon: <IconShield className="w-12 h-12" />,
       title: "Admin Control",
       description: "Powerful administrative tools for platform management and user oversight.",
       features: ["User Management", "Platform Analytics", "Content Moderation", "System Monitoring"],
@@ -141,25 +145,25 @@ export default function HomePage() {
 
   const modernFeatures = [
     {
-      icon: <Zap className="w-8 h-8" />,
+      icon: <IconBolt className="w-8 h-8" />,
       title: "AI-Powered Learning",
       description: "Personalized learning paths with AI recommendations",
       color: "from-yellow-500 to-orange-500",
     },
     {
-      icon: <Globe className="w-8 h-8" />,
+      icon: <IconWorld className="w-8 h-8" />,
       title: "Global Community",
       description: "Connect with learners worldwide in study groups",
       color: "from-indigo-500 to-purple-500",
     },
     {
-      icon: <Target className="w-8 h-8" />,
+      icon: <IconTarget className="w-8 h-8" />,
       title: "Skill Assessment",
       description: "Regular assessments to track your skill development",
       color: "from-pink-500 to-rose-500",
     },
     {
-      icon: <Lightbulb className="w-8 h-8" />,
+      icon: <IconBulb className="w-8 h-8" />,
       title: "Interactive Labs",
       description: "Hands-on coding labs and virtual environments",
       color: "from-emerald-500 to-teal-500",
@@ -167,10 +171,10 @@ export default function HomePage() {
   ]
 
   const stats = [
-    { number: "50K+", label: "Active Students", icon: <Users className="w-6 h-6" /> },
-    { number: "2,500+", label: "Expert Instructors", icon: <GraduationCap className="w-6 h-6" /> },
-    { number: "10K+", label: "Courses Available", icon: <BookOpen className="w-6 h-6" /> },
-    { number: "98%", label: "Success Rate", icon: <TrendingUp className="w-6 h-6" /> },
+    { number: "50K+", label: "Active Students", icon: <IconUsers className="w-6 h-6" /> },
+    { number: "2,500+", label: "Expert Instructors", icon: <IconSchool className="w-6 h-6" /> },
+    { number: "10K+", label: "Courses Available", icon: <IconBook className="w-6 h-6" /> },
+    { number: "98%", label: "Success Rate", icon: <IconTrendingUp className="w-6 h-6" /> },
   ]
 
   const testimonials = [
@@ -202,42 +206,42 @@ export default function HomePage() {
       name: "Web Development",
       courses: 245,
       students: "12.5K",
-      icon: "💻",
+      icon: <IconCode className="w-6 h-6" />,
       color: "bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300",
     },
     {
       name: "Data Science",
       courses: 189,
       students: "8.9K",
-      icon: "📊",
+      icon: <IconChartBar className="w-6 h-6" />,
       color: "bg-purple-100 text-purple-700 dark:bg-purple-900 dark:text-purple-300",
     },
     {
       name: "Mobile Development",
       courses: 156,
       students: "7.2K",
-      icon: "📱",
+      icon: <IconDeviceMobile className="w-6 h-6" />,
       color: "bg-green-100 text-green-700 dark:bg-green-900 dark:text-green-300",
     },
     {
       name: "UI/UX Design",
       courses: 134,
       students: "6.5K",
-      icon: "🎨",
+      icon: <IconPalette className="w-6 h-6" />,
       color: "bg-orange-100 text-orange-700 dark:bg-orange-900 dark:text-orange-300",
     },
     {
       name: "Digital Marketing",
       courses: 98,
       students: "4.8K",
-      icon: "📈",
+      icon: <IconTrendingUp className="w-6 h-6" />,
       color: "bg-pink-100 text-pink-700 dark:bg-pink-900 dark:text-pink-300",
     },
     {
       name: "Business",
       courses: 87,
       students: "3.8K",
-      icon: "💼",
+      icon: <IconBriefcase className="w-6 h-6" />,
       color: "bg-indigo-100 text-indigo-700 dark:bg-indigo-900 dark:text-indigo-300",
     },
   ]
@@ -256,9 +260,10 @@ export default function HomePage() {
               <div className="space-y-6">
                 <Badge
                   variant="secondary"
-                  className="bg-gradient-to-r from-teal-100 to-green-100 text-teal-700 dark:from-teal-900 dark:to-green-900 dark:text-teal-300 border-0"
+                  className="bg-gradient-to-r from-teal-100 to-green-100 text-teal-700 dark:from-teal-900 dark:to-green-900 dark:text-teal-300 border-0 px-4 py-2"
                 >
-                  🚀 Transform Your Career Today
+                  <IconRocket className="w-4 h-4 mr-2" />
+                  Transform Your Career Today
                 </Badge>
                 <h1 className="text-4xl lg:text-7xl font-bold leading-tight">
                   Master New Skills with{" "}
@@ -279,11 +284,11 @@ export default function HomePage() {
                   onClick={handleStartLearning}
                   className="bg-gradient-to-r from-teal-600 to-green-600 hover:from-teal-700 hover:to-green-700 text-white shadow-lg"
                 >
-                  <Play className="w-5 h-5 mr-2" />
+                  <IconPlayerPlay className="w-5 h-5 mr-2" />
                   Start Learning Free
                 </Button>
                 <Button size="lg" variant="outline" className="border-2" onClick={handleBrowseCourses}>
-                  <BookOpen className="w-5 h-5 mr-2" />
+                  <IconBook className="w-5 h-5 mr-2" />
                   Browse Courses
                 </Button>
               </div>
@@ -316,7 +321,7 @@ export default function HomePage() {
                 <div className="absolute -top-4 -right-4 bg-gradient-to-r from-teal-500 to-green-500 text-white rounded-xl p-4 shadow-lg animate-bounce">
                   <div className="flex items-center gap-2">
                     <div className="w-12 h-12 bg-white/20 rounded-lg flex items-center justify-center">
-                      <Award className="w-6 h-6" />
+                      <IconAward className="w-6 h-6" />
                     </div>
                     <div>
                       <div className="font-semibold text-sm">Certificate</div>
@@ -428,7 +433,7 @@ export default function HomePage() {
                   <ul className="space-y-2">
                     {feature.features.map((item, idx) => (
                       <li key={idx} className="flex items-center gap-2">
-                        <CheckCircle className="w-4 h-4 text-green-500" />
+                        <IconCheck className="w-4 h-4 text-green-500" />
                         <span className="text-sm">{item}</span>
                       </li>
                     ))}
@@ -483,7 +488,7 @@ export default function HomePage() {
               <Card key={index} className="hover:shadow-xl transition-all duration-300 group cursor-pointer">
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-4">
-                    <div className={`text-4xl p-3 rounded-xl ${category.color}`}>{category.icon}</div>
+                    <div className={`p-3 rounded-xl ${category.color}`}>{category.icon}</div>
                     <div className="text-right">
                       <div className="text-2xl font-bold">{category.courses}</div>
                       <div className="text-xs text-muted-foreground">Courses</div>
@@ -500,7 +505,7 @@ export default function HomePage() {
                     onClick={handleBrowseCourses}
                   >
                     Explore Courses
-                    <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
+                    <IconArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </CardContent>
               </Card>
@@ -533,7 +538,7 @@ export default function HomePage() {
                 <CardContent className="p-6">
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                      <IconStar key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
                   <p className="text-muted-foreground mb-6 italic">"{testimonial.content}"</p>
@@ -582,7 +587,7 @@ export default function HomePage() {
             <Card className="p-8">
               <CardHeader className="px-0 pt-0">
                 <CardTitle className="flex items-center gap-2">
-                  <MessageSquare className="w-5 h-5" />
+                  <IconMessageCircle className="w-5 h-5" />
                   Send us a message
                 </CardTitle>
                 <CardDescription>Fill out the form below and we'll get back to you within 24 hours.</CardDescription>
@@ -642,7 +647,7 @@ export default function HomePage() {
                       "Sending..."
                     ) : (
                       <>
-                        <Send className="w-4 h-4 mr-2" />
+                        <IconSend className="w-4 h-4 mr-2" />
                         Send Message
                       </>
                     )}
@@ -656,7 +661,7 @@ export default function HomePage() {
               <Card className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-teal-500 to-green-500 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-white" />
+                    <IconMail className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Email Us</h3>
@@ -668,7 +673,7 @@ export default function HomePage() {
               <Card className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-white" />
+                    <IconPhone className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Call Us</h3>
@@ -680,7 +685,7 @@ export default function HomePage() {
               <Card className="p-6">
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-white" />
+                    <IconMapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h3 className="font-semibold">Visit Us</h3>
@@ -724,7 +729,7 @@ export default function HomePage() {
                 className="bg-white text-gray-900 hover:bg-gray-100"
                 onClick={handleStartLearning}
               >
-                <Rocket className="w-5 h-5 mr-2" />
+                <IconRocket className="w-5 h-5 mr-2" />
                 Start Learning Free
               </Button>
               <Button
@@ -733,7 +738,7 @@ export default function HomePage() {
                 className="border-white text-white hover:bg-white hover:text-gray-900"
                 onClick={() => document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" })}
               >
-                <Heart className="w-5 h-5 mr-2" />
+                <IconHeart className="w-5 h-5 mr-2" />
                 Contact Us
               </Button>
             </div>

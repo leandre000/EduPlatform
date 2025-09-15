@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
-import { BookOpen, Eye, EyeOff, Loader2, User, GraduationCap } from "lucide-react"
+import { IconBook, IconEye, IconEyeOff, IconLoader2, IconUser, IconSchool } from "@tabler/icons-react"
 import { useAuth } from "@/context/auth-context"
 
 export default function RegisterPage() {
@@ -66,7 +66,7 @@ export default function RegisterPage() {
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
             <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
-              <BookOpen className="w-6 h-6 text-white" />
+              <IconBook className="w-6 h-6 text-white" />
             </div>
           </div>
           <CardTitle className="text-2xl font-bold">Create Account</CardTitle>
@@ -116,7 +116,7 @@ export default function RegisterPage() {
                   className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                   onClick={() => setShowPassword(!showPassword)}
                 >
-                  {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showPassword ? <IconEyeOff className="h-4 w-4" /> : <IconEye className="h-4 w-4" />}
                 </Button>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function RegisterPage() {
                   className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
                 >
-                  {showConfirmPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  {showConfirmPassword ? <IconEyeOff className="h-4 w-4" /> : <IconEye className="h-4 w-4" />}
                 </Button>
               </div>
             </div>
@@ -154,14 +154,14 @@ export default function RegisterPage() {
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="STUDENT" id="student" />
                   <Label htmlFor="student" className="flex items-center gap-2 cursor-pointer">
-                    <User className="w-4 h-4" />
+                    <IconUser className="w-4 h-4" />
                     Student
                   </Label>
                 </div>
                 <div className="flex items-center space-x-2">
                   <RadioGroupItem value="INSTRUCTOR" id="instructor" />
                   <Label htmlFor="instructor" className="flex items-center gap-2 cursor-pointer">
-                    <GraduationCap className="w-4 h-4" />
+                    <IconSchool className="w-4 h-4" />
                     Instructor
                   </Label>
                 </div>
@@ -182,7 +182,7 @@ export default function RegisterPage() {
             )}
 
             <Button type="submit" className="w-full" disabled={isLoading}>
-              {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+              {isLoading && <IconLoader2 className="mr-2 h-4 w-4 animate-spin" />}
               Create Account
             </Button>
           </form>

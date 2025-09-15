@@ -4,7 +4,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Users, BookOpen, DollarSign, AlertTriangle, Activity, Shield, BarChart3, Settings } from "lucide-react"
+import { IconUsers, IconBook, IconCurrencyDollar, IconAlertTriangle, IconActivity, IconShield, IconChartBar, IconSettings } from "@tabler/icons-react"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import {
   LineChart,
@@ -67,7 +67,7 @@ export default function AdminDashboard() {
     {
       title: "Total Users",
       value: "2,458",
-      icon: <Users className="w-6 h-6" />,
+      icon: <IconUsers className="w-6 h-6" />,
       color: "text-blue-600",
       bgColor: "bg-blue-100 dark:bg-blue-900",
       change: "+12.5%",
@@ -75,7 +75,7 @@ export default function AdminDashboard() {
     {
       title: "Total Courses",
       value: "238",
-      icon: <BookOpen className="w-6 h-6" />,
+      icon: <IconBook className="w-6 h-6" />,
       color: "text-green-600",
       bgColor: "bg-green-100 dark:bg-green-900",
       change: "+8.3%",
@@ -83,7 +83,7 @@ export default function AdminDashboard() {
     {
       title: "Monthly Revenue",
       value: "$35,500",
-      icon: <DollarSign className="w-6 h-6" />,
+      icon: <IconCurrencyDollar className="w-6 h-6" />,
       color: "text-purple-600",
       bgColor: "bg-purple-100 dark:bg-purple-900",
       change: "+15.2%",
@@ -91,7 +91,7 @@ export default function AdminDashboard() {
     {
       title: "Active Sessions",
       value: "1,234",
-      icon: <Activity className="w-6 h-6" />,
+      icon: <IconActivity className="w-6 h-6" />,
       color: "text-orange-600",
       bgColor: "bg-orange-100 dark:bg-orange-900",
       change: "+5.7%",
@@ -162,13 +162,13 @@ export default function AdminDashboard() {
         <div className="flex gap-2 mt-4 md:mt-0">
           <Button asChild>
             <Link href="/admin/users">
-              <Users className="w-4 h-4 mr-2" />
+              <IconUsers className="w-4 h-4 mr-2" />
               Manage Users
             </Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="/admin/settings">
-              <Settings className="w-4 h-4 mr-2" />
+              <IconSettings className="w-4 h-4 mr-2" />
               Settings
             </Link>
           </Button>
@@ -383,7 +383,7 @@ export default function AdminDashboard() {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <AlertTriangle className="w-5 h-5" />
+                <IconAlertTriangle className="w-5 h-5" />
                 System Alerts
               </CardTitle>
             </CardHeader>
@@ -399,7 +399,7 @@ export default function AdminDashboard() {
                           : "bg-blue-100 text-blue-600"
                     }`}
                   >
-                    <AlertTriangle className="w-4 h-4" />
+                    <IconAlertTriangle className="w-4 h-4" />
                   </div>
                   <div className="flex-1">
                     <h4 className="font-medium text-sm">{alert.title}</h4>
@@ -454,25 +454,25 @@ export default function AdminDashboard() {
             <div className="grid grid-cols-2 gap-4">
               <Button className="h-20 flex-col gap-2" variant="outline" asChild>
                 <Link href="/admin/users">
-                  <Users className="w-6 h-6" />
+                  <IconUsers className="w-6 h-6" />
                   Manage Users
                 </Link>
               </Button>
               <Button className="h-20 flex-col gap-2" variant="outline" asChild>
                 <Link href="/admin/courses">
-                  <BookOpen className="w-6 h-6" />
+                  <IconBook className="w-6 h-6" />
                   Manage Courses
                 </Link>
               </Button>
               <Button className="h-20 flex-col gap-2" variant="outline" asChild>
                 <Link href="/admin/complaints">
-                  <Shield className="w-6 h-6" />
+                  <IconShield className="w-6 h-6" />
                   Handle Complaints
                 </Link>
               </Button>
               <Button className="h-20 flex-col gap-2" variant="outline" asChild>
                 <Link href="/admin/analytics">
-                  <BarChart3 className="w-6 h-6" />
+                  <IconChartBar className="w-6 h-6" />
                   View Analytics
                 </Link>
               </Button>

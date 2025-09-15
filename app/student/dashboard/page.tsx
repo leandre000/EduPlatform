@@ -6,9 +6,10 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { BookOpen, Clock, Award, Users, TrendingUp, Play, CheckCircle, Star, Calendar, Target } from "lucide-react"
+import { IconBook, IconClock, IconAward, IconUsers, IconTrendingUp, IconPlayerPlay, IconCheck, IconStar, IconCalendar, IconTarget } from "@tabler/icons-react"
 import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
+import Image from "next/image"
 
 export default function StudentDashboardPage() {
   const { user } = useAuth()
@@ -64,20 +65,6 @@ export default function StudentDashboardPage() {
           <p className="text-sm opacity-90">Track your progress and achievements</p>
         </div>
       </div>
-      <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg">
-        <Image
-          src="/dashboard-learning.jpg"
-          alt="Interactive Learning Environment"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        <div className="absolute bottom-4 left-4 text-white">
-          <h3 className="text-xl font-semibold">Your Learning Journey</h3>
-          <p className="text-sm opacity-90">Track your progress and achievements</p>
-        </div>
-      </div>
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -89,7 +76,7 @@ export default function StudentDashboardPage() {
                 <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">{enrollments.length}</p>
               </div>
               <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full">
-                <BookOpen className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                <IconBook className="w-6 h-6 text-blue-600 dark:text-blue-400" />
               </div>
             </div>
           </CardContent>
@@ -103,7 +90,7 @@ export default function StudentDashboardPage() {
                 <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">24.5</p>
               </div>
               <div className="p-3 bg-green-100 dark:bg-green-900 rounded-full">
-                <Clock className="w-6 h-6 text-green-600 dark:text-green-400" />
+                <IconClock className="w-6 h-6 text-green-600 dark:text-green-400" />
               </div>
             </div>
           </CardContent>
@@ -117,7 +104,7 @@ export default function StudentDashboardPage() {
                 <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">3</p>
               </div>
               <div className="p-3 bg-yellow-100 dark:bg-yellow-900 rounded-full">
-                <Award className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
+                <IconAward className="w-6 h-6 text-yellow-600 dark:text-yellow-400" />
               </div>
             </div>
           </CardContent>
@@ -131,7 +118,7 @@ export default function StudentDashboardPage() {
                 <p className="text-2xl font-bold text-gray-900 dark:text-gray-100">87%</p>
               </div>
               <div className="p-3 bg-purple-100 dark:bg-purple-900 rounded-full">
-                <TrendingUp className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+                <IconTrendingUp className="w-6 h-6 text-purple-600 dark:text-purple-400" />
               </div>
             </div>
           </CardContent>
@@ -148,7 +135,7 @@ export default function StudentDashboardPage() {
           <CardContent className="space-y-4">
             <div className="flex items-center space-x-4">
               <div className="p-2 bg-green-100 dark:bg-green-900 rounded-full">
-                <CheckCircle className="w-4 h-4 text-green-600 dark:text-green-400" />
+                <IconCheck className="w-4 h-4 text-green-600 dark:text-green-400" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">Completed Web Development Module</p>
@@ -157,7 +144,7 @@ export default function StudentDashboardPage() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="p-2 bg-blue-100 dark:bg-blue-900 rounded-full">
-                <Play className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                <IconPlayerPlay className="w-4 h-4 text-blue-600 dark:text-blue-400" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">Started React Fundamentals</p>
@@ -166,7 +153,7 @@ export default function StudentDashboardPage() {
             </div>
             <div className="flex items-center space-x-4">
               <div className="p-2 bg-yellow-100 dark:bg-yellow-900 rounded-full">
-                <Star className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
+                <IconStar className="w-4 h-4 text-yellow-600 dark:text-yellow-400" />
               </div>
               <div className="flex-1">
                 <p className="text-sm font-medium">Earned JavaScript Certificate</p>

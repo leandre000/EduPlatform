@@ -22,20 +22,20 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
-  BookOpen,
-  BarChart3,
-  FileText,
-  Award,
-  MessageSquare,
-  Settings,
-  LogOut,
-  Home,
-  Search,
-  Calendar,
-  Download,
-  ChevronUp,
-  GraduationCap,
-} from "lucide-react"
+  IconBook,
+  IconChartBar,
+  IconFileText,
+  IconAward,
+  IconMessageCircle,
+  IconSettings,
+  IconLogout,
+  IconHome,
+  IconSearch,
+  IconCalendar,
+  IconDownload,
+  IconChevronUp,
+  IconSchool,
+} from "@tabler/icons-react"
 import Link from "next/link"
 import { useAuth } from "@/context/auth-context"
 import { usePathname } from "next/navigation"
@@ -44,47 +44,47 @@ const menuItems = [
   {
     title: "Dashboard",
     url: "/student/dashboard",
-    icon: Home,
+    icon: IconHome,
   },
   {
     title: "My Courses",
     url: "/student/courses",
-    icon: BookOpen,
+    icon: IconBook,
   },
   {
     title: "Browse Courses",
     url: "/courses",
-    icon: Search,
+    icon: IconSearch,
   },
   {
     title: "Assignments",
     url: "/student/assignments",
-    icon: FileText,
+    icon: IconFileText,
   },
   {
     title: "Progress",
     url: "/student/progress",
-    icon: BarChart3,
+    icon: IconChartBar,
   },
   {
     title: "Certificates",
     url: "/student/certificates",
-    icon: Award,
+    icon: IconAward,
   },
   {
     title: "Schedule",
     url: "/student/schedule",
-    icon: Calendar,
+    icon: IconCalendar,
   },
   {
     title: "Downloads",
     url: "/student/downloads",
-    icon: Download,
+    icon: IconDownload,
   },
   {
     title: "Support",
     url: "/student/support",
-    icon: MessageSquare,
+    icon: IconMessageCircle,
   },
 ]
 
@@ -100,7 +100,7 @@ export function StudentSidebar() {
             <SidebarMenuButton size="lg" asChild>
               <Link href="/student/dashboard">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-gradient-to-br from-teal-600 to-green-600 text-white">
-                  <GraduationCap className="size-4" />
+                  <IconSchool className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">EduPlatform</span>
@@ -151,7 +151,7 @@ export function StudentSidebar() {
                     <span className="truncate font-semibold">{user?.name}</span>
                     <span className="truncate text-xs">{user?.email}</span>
                   </div>
-                  <ChevronUp className="ml-auto size-4" />
+                  <IconChevronUp className="ml-auto size-4" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
@@ -162,13 +162,13 @@ export function StudentSidebar() {
               >
                 <DropdownMenuItem asChild>
                   <Link href="/student/profile">
-                    <Settings className="mr-2 h-4 w-4" />
+                    <IconSettings className="mr-2 h-4 w-4" />
                     Profile Settings
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
-                  <LogOut className="mr-2 h-4 w-4" />
+                  <IconLogout className="mr-2 h-4 w-4" />
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>

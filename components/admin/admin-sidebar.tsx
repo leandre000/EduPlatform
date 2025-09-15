@@ -22,21 +22,21 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
-  BookOpen,
-  BarChart3,
-  Users,
-  MessageSquare,
-  Settings,
-  LogOut,
-  Home,
-  Shield,
-  Database,
-  Mail,
-  Activity,
-  ChevronUp,
-  GraduationCap,
-  AlertTriangle,
-} from "lucide-react"
+  IconBook,
+  IconChartBar,
+  IconUsers,
+  IconMessageCircle,
+  IconSettings,
+  IconLogout,
+  IconHome,
+  IconShield,
+  IconDatabase,
+  IconMail,
+  IconActivity,
+  IconChevronUp,
+  IconSchool,
+  IconAlertTriangle,
+} from "@tabler/icons-react"
 import Link from "next/link"
 import { useAuth } from "@/context/auth-context"
 import { usePathname } from "next/navigation"
@@ -45,52 +45,52 @@ const menuItems = [
   {
     title: "Dashboard",
     url: "/admin/dashboard",
-    icon: Home,
+    icon: IconHome,
   },
   {
     title: "Users",
     url: "/admin/users",
-    icon: Users,
+    icon: IconUsers,
   },
   {
     title: "Courses",
     url: "/admin/courses",
-    icon: BookOpen,
+    icon: IconBook,
   },
   {
     title: "Analytics",
     url: "/admin/analytics",
-    icon: BarChart3,
+    icon: IconChartBar,
   },
   {
     title: "Complaints",
     url: "/admin/complaints",
-    icon: MessageSquare,
+    icon: IconMessageCircle,
   },
   {
     title: "Contact Messages",
     url: "/admin/contact",
-    icon: Mail,
+    icon: IconMail,
   },
   {
     title: "System Health",
     url: "/admin/system",
-    icon: Activity,
+    icon: IconActivity,
   },
   {
     title: "Security",
     url: "/admin/security",
-    icon: Shield,
+    icon: IconShield,
   },
   {
     title: "Database",
     url: "/admin/database",
-    icon: Database,
+    icon: IconDatabase,
   },
   {
     title: "Reports",
     url: "/admin/reports",
-    icon: AlertTriangle,
+    icon: IconAlertTriangle,
   },
 ]
 
@@ -106,7 +106,7 @@ export function AdminSidebar() {
             <SidebarMenuButton size="lg" asChild>
               <Link href="/admin/dashboard">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-gradient-to-br from-orange-600 to-red-600 text-white">
-                  <GraduationCap className="size-4" />
+                  <IconSchool className="size-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">EduPlatform</span>
@@ -157,7 +157,7 @@ export function AdminSidebar() {
                     <span className="truncate font-semibold">{user?.name}</span>
                     <span className="truncate text-xs">{user?.email}</span>
                   </div>
-                  <ChevronUp className="ml-auto size-4" />
+                  <IconChevronUp className="ml-auto size-4" />
                 </SidebarMenuButton>
               </DropdownMenuTrigger>
               <DropdownMenuContent
@@ -168,13 +168,13 @@ export function AdminSidebar() {
               >
                 <DropdownMenuItem asChild>
                   <Link href="/admin/profile">
-                    <Settings className="mr-2 h-4 w-4" />
+                    <IconSettings className="mr-2 h-4 w-4" />
                     Profile Settings
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={logout}>
-                  <LogOut className="mr-2 h-4 w-4" />
+                  <IconLogout className="mr-2 h-4 w-4" />
                   Log out
                 </DropdownMenuItem>
               </DropdownMenuContent>
