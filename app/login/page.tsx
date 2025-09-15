@@ -5,6 +5,7 @@ import type React from "react"
 import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { useAuth } from "@/context/auth-context"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -19,6 +20,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState("")
   const router = useRouter()
+  const { demoLogin } = useAuth()
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -96,6 +98,18 @@ console.log("Login successful:", data)
             <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
               <IconBook className="w-6 h-6 text-white" />
             </div>
+          </div>
+          {/* Demo Logins */}
+          <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
+            <Button type="button" variant="outline" onClick={() => demoLogin("STUDENT")}>
+              Student Demo
+            </Button>
+            <Button type="button" variant="outline" onClick={() => demoLogin("INSTRUCTOR")}>
+              Instructor Demo
+            </Button>
+            <Button type="button" variant="outline" onClick={() => demoLogin("ADMIN")}>
+              Admin Demo
+            </Button>
           </div>
           <CardTitle className="text-2xl font-bold">Welcome Back</CardTitle>
           <CardDescription>Sign in to your account to continue learning</CardDescription>

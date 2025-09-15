@@ -22,6 +22,7 @@ interface AuthContextType {
   logout: () => void
   register: (data: RegisterData) => Promise<void>
   updateProfile: (data: Partial<User>) => Promise<void>
+  demoLogin: (role: "STUDENT" | "INSTRUCTOR" | "ADMIN") => void
 }
 
 interface RegisterData {
@@ -49,14 +50,40 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       const token = localStorage.getItem("jwtToken")
       if (!token) {
+        // Check for demo session
+        const demoRole = localStorage.getItem("demoRole") as User["role"] | null
+        if (demoRole) {
+          setUser({
+            id: "demo-user-id",
+            name: `Demo ${demoRole.charAt(0)}${demoRole.slice(1).toLowerCase()}`,
+            email: `demo+${demoRole.toLowerCase()}@edu.test`,
+            role: demoRole,
+            avatar: "/placeholder.svg",
+          })
+          setIsLoading(false)
+          return
+        }
         setIsLoading(false)
         return
       }
 
-      const response = await userApi.getProfile()
-      setUser(response.data)
+      // Support demo token without backend call
+      if (token.startsWith("demo-")) {
+        const demoRole = (localStorage.getItem("demoRole") as User["role"]) || "STUDENT"
+        setUser({
+          id: "demo-user-id",
+          name: `Demo ${demoRole.charAt(0)}${demoRole.slice(1).toLowerCase()}`,
+          email: `demo+${demoRole.toLowerCase()}@edu.test`,
+          role: demoRole,
+          avatar: "/placeholder.svg",
+        })
+      } else {
+        const response = await userApi.getProfile()
+        setUser(response.data)
+      }
     } catch (error) {
       localStorage.removeItem("jwtToken")
+      localStorage.removeItem("demoRole")
       console.error("Auth check failed:", error)
     } finally {
       setIsLoading(false)
@@ -94,6 +121,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const logout = () => {
     localStorage.removeItem("jwtToken")
+    localStorage.removeItem("demoRole")
+    // clear cookie
+    if (typeof document !== "undefined") {
+      document.cookie = "jwtToken=; Max-Age=0; path=/"
+    }
     setUser(null)
     router.push("/")
     toast.success("Logged out successfully")
@@ -123,6 +155,35 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     }
   }
 
+  const demoLogin = (role: "STUDENT" | "INSTRUCTOR" | "ADMIN") => {
+    const demoToken = `demo-${role}-${Date.now()}`
+    localStorage.setItem("jwtToken", demoToken)
+    localStorage.setItem("demoRole", role)
+    if (typeof document !== "undefined") {
+      document.cookie = `jwtToken=${demoToken}; path=/` 
+    }
+    const demoUser: User = {
+      id: "demo-user-id",
+      name: `Demo ${role.charAt(0)}${role.slice(1).toLowerCase()}`,
+      email: `demo+${role.toLowerCase()}@edu.test`,
+      role,
+      avatar: "/placeholder.svg",
+    }
+    setUser(demoUser)
+    toast.success(`Logged in as ${role.toLowerCase()} (demo)`)
+
+    switch (role) {
+      case "ADMIN":
+        router.push("/admin/dashboard")
+        break
+      case "INSTRUCTOR":
+        router.push("/instructor/dashboard")
+        break
+      default:
+        router.push("/student/dashboard")
+    }
+  }
+
   return (
     <AuthContext.Provider
       value={{
@@ -133,6 +194,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         logout,
         register,
         updateProfile,
+        demoLogin,
       }}
     >
       {children}
