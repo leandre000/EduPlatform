@@ -310,6 +310,9 @@ export default function HomePage() {
                     height={720}
                     className="rounded-2xl w-full h-auto"
                     priority
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 640px"
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxAQEBAQEA8QDw8QDw8QEA8PDw8QFREWFhURFRUYHSggGBolGxUVITEhJSkrLi4uFx8zODMsNygtLisBCgoKDg0OGxAQGy0lICUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIABQAFAMBIgACEQEDEQH/xAAXAAADAQAAAAAAAAAAAAAAAAAEBQYH/8QAGxAAAgMBAQEAAAAAAAAAAAAAAQIAAwQREjH/xAAUAQEAAAAAAAAAAAAAAAAAAAAE/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8A2sK2b0m7n8q6k9wqS5qgJ6gQfJ9e3Vh5bQ0Z3b0q1m2m9M8h8n0v7wJq2eJcBhsn6bqU8sYxvF4yq1mJm8z7hvH0h4wA03T0pF1C0F4S6yqgAAB9Qf/Z"
                   />
                 </div>
 
