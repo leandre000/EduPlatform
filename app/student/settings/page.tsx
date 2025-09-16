@@ -7,9 +7,14 @@ import { useAuth } from "@/context/auth-context"
 export default function StudentSettingsPage() {
   const { logout } = useAuth()
   return (
-    <div className="p-6 max-w-3xl">
-      <h1 className="text-2xl font-semibold">Settings</h1>
-      <div className="mt-6 grid gap-6">
+    <div className="p-6 max-w-3xl space-y-4">
+      <div className="flex items-center justify-between">
+        <h1 className="text-2xl font-semibold">Settings</h1>
+        <a href="/student/dashboard" className="text-sm underline">Back</a>
+      </div>
+      <p className="text-muted-foreground">Update your profile and preferences here.</p>
+
+      <div className="mt-2 grid gap-6">
         <section className="rounded-lg border p-4">
           <h2 className="font-medium">Appearance</h2>
           <div className="mt-2">

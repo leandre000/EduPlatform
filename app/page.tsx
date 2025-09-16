@@ -66,14 +66,9 @@ export default function HomePage() {
 
   const handleBrowseCourses = () => {
     if (isAuthenticated) {
-      window.location.href = "/courses"
+      window.location.href = "/student/courses"
     } else {
-      toast.info("Please login or sign up to explore our courses", {
-        action: {
-          label: "Sign Up",
-          onClick: () => (window.location.href = "/register"),
-        },
-      })
+      window.location.href = "/login"
     }
   }
 
