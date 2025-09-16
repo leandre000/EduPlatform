@@ -15,6 +15,7 @@ function StudentDashboardContent() {
   const { user } = useAuth()
   const [enrollments, setEnrollments] = useState([])
   const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     fetchDashboardData()
@@ -22,10 +23,12 @@ function StudentDashboardContent() {
 
   const fetchDashboardData = async () => {
     try {
+      setError(null)
       const enrollmentsRes = await studentApi.getMyEnrollments()
       setEnrollments(enrollmentsRes.data || [])
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error)
+      setError("Failed to load your dashboard data")
     } finally {
       setIsLoading(false)
     }
@@ -65,6 +68,19 @@ function StudentDashboardContent() {
           <p className="text-sm opacity-90">Track your progress and achievements</p>
         </div>
       </div>
+
+      {/* Error State */}
+      {error ? (
+        <Card>
+          <CardHeader>
+            <CardTitle className="text-red-600">We couldn’t load everything</CardTitle>
+            <CardDescription>{error}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Button onClick={fetchDashboardData}>Try again</Button>
+          </CardContent>
+        </Card>
+      ) : null}
 
       {/* Stats Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -133,6 +149,9 @@ function StudentDashboardContent() {
             <CardDescription>Your latest learning activities</CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
+            {enrollments.length === 0 ? (
+              <div className="text-sm text-muted-foreground">No recent activities yet. Enroll in a course to get started.</div>
+            ) : null}
             <div className="flex items-center space-x-4">
               <div className="p-2 bg-green-100 dark:bg-green-900 rounded-full">
                 <IconCheck className="w-4 h-4 text-green-600 dark:text-green-400" />
