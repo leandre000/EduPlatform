@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { IconBook, IconClock, IconAward, IconTrendingUp, IconPlayerPlay, IconCheck, IconStar } from "@tabler/icons-react"
 import { useAuth } from "@/context/auth-context"
 import { studentApi } from "@/utils/api"
@@ -68,18 +69,26 @@ function StudentDashboardContent() {
         </Badge>
       </div>
 
-      {/* Learning Image Section */}
-      <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg">
-        <img
-          src="/dashboard-learning.jpg"
-          alt="Interactive Learning Environment"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-        <div className="absolute bottom-4 left-4 text-white">
-          <h3 className="text-xl font-semibold">Your Learning Journey</h3>
-          <p className="text-sm opacity-90">Track your progress and achievements</p>
-        </div>
+      {/* Hero Carousel */}
+      <div className="relative">
+        <Carousel className="w-full">
+          <CarouselContent>
+            {["/dashboard-learning.jpg", "/learning-dashboard.svg", "/placeholder.jpg"].map((src, i) => (
+              <CarouselItem key={i}>
+                <div className="relative w-full h-64 rounded-xl overflow-hidden shadow-lg">
+                  <img src={src} alt="Learning highlight" className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-4 left-4 text-white">
+                    <h3 className="text-xl font-semibold">Your Learning Journey</h3>
+                    <p className="text-sm opacity-90">Track your progress and achievements</p>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious />
+          <CarouselNext />
+        </Carousel>
       </div>
 
       {/* Error State */}
